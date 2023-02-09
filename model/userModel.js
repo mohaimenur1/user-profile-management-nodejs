@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const validator = require("validator");
 
 const userModel = new mongoose.Schema({
   firstName: {
@@ -24,6 +25,17 @@ const userModel = new mongoose.Schema({
     required: [true, "must provide password"],
     minLength: 6,
     maxLength: 12,
+  },
+  confirmPassword: {
+    type: String,
+    trim: true,
+    required: [true, "must provide password"],
+    validator: {
+      //this is only works on create and save
+      validator: function (el) {
+        return el === this.password; //abc ===abc
+      },
+    },
   },
   isAdmin: {
     type: Boolean,
