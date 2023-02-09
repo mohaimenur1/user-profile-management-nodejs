@@ -1,5 +1,6 @@
 const userModel = require("../model/userModel");
 
+//sign up controller
 const createUser = async (req, res) => {
   try {
     const newUser = await userModel.create(req.body);
