@@ -22,6 +22,8 @@ const userModel = new mongoose.Schema({
     type: String,
     trim: true,
     required: [true, "must provide password"],
+    minLength: 6,
+    maxLength: 12,
   },
   isAdmin: {
     type: Boolean,
