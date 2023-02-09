@@ -30,11 +30,12 @@ const userModel = new mongoose.Schema({
     type: String,
     trim: true,
     required: [true, "must provide password"],
-    validator: {
+    validate: {
       //this is only works on CREATE and SAVE
       validator: function (el) {
         return el === this.password; //abc ===abc
       },
+      message: "password are not the same",
     },
   },
   isAdmin: {
