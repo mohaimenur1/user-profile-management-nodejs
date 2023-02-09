@@ -42,6 +42,14 @@ const userModel = new mongoose.Schema({
     required: true,
     default: false,
   },
+  createDate: {
+    type: Date,
+    default: Date.now(),
+  },
+  updatedDate: {
+    type: Date,
+    default: Date.now(),
+  },
 });
 
 module.exports = mongoose.model("users", userModel);
