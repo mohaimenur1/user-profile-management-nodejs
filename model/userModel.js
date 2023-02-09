@@ -31,7 +31,7 @@ const userModel = new mongoose.Schema({
     trim: true,
     required: [true, "must provide password"],
     validator: {
-      //this is only works on create and save
+      //this is only works on CREATE and SAVE
       validator: function (el) {
         return el === this.password; //abc ===abc
       },
@@ -41,14 +41,6 @@ const userModel = new mongoose.Schema({
     type: Boolean,
     required: true,
     default: false,
-  },
-  createDate: {
-    type: Date,
-    default: Date.now(),
-  },
-  updatedDate: {
-    type: Date,
-    default: Date.now(),
   },
 });
 
